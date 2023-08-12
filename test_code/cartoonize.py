@@ -1,12 +1,12 @@
 import os
 import cv2
 import numpy as np
-import tensorflow as tf 
+#import tensorflow as tf 
 import network
 import guided_filter
 
-import tensorflow.compat.v1 as tfv1
-tfv1.disable_v2_behavior()
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 from tqdm import tqdm
 
