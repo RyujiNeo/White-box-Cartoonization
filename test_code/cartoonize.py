@@ -4,6 +4,10 @@ import numpy as np
 import tensorflow as tf 
 import network
 import guided_filter
+
+import tensorflow.compat.v1 as tfv1
+tfv1.disable_v2_behavior()
+
 from tqdm import tqdm
 
 
@@ -23,7 +27,7 @@ def resize_crop(image):
     
 
 def cartoonize(load_folder, save_folder, model_path):
-    input_photo = tf.compat.v1.placeholder(tf.float32, [1, None, None, 3])
+    input_photo = tfv1.placeholder(tf.float32, [1, None, None, 3])
     network_out = network.unet_generator(input_photo)
     final_out = guided_filter.guided_filter(input_photo, network_out, r=1, eps=5e-3)
 
